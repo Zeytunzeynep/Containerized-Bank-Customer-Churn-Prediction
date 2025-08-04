@@ -1,7 +1,7 @@
 import os 
 from box.exceptions import BoxValueError
 import yaml
-from Containerized_Bank_Customed_Churn_Prediction import logger
+from src.Containerized_Bank_Customed_Churn_Prediction import logger
 import json
 import joblib
 from ensure import ensure_annotations

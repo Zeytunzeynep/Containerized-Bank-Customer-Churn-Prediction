@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bank Customer Churn Dataset  | Kaggle</title>
+  <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+  <meta name="description" content="Bank Customer Data for Predicting Customer Churn " />
+    <meta name="keywords" content="classification,exploratory data analysis,banking,binary classification,logistic regression" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC" />
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" type="text/javascript">
+    window["pageRequestStartTime"] = 1754340675797;
+    window["pageRequestEndTime"] = 1754340675883;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab-v4/jupyterlab-index-75b720037adfa505c70e.html";</script>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" id="dynamic-favicon" />
+  <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="stylesheet" media="print" id="async-google-font-2" />
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+
+    <link rel="canonical" href="https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=2d4e7ec4eb689d926191" />
+
+  
+    
+ 
+      <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T7QHS60L4Q', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Datasets'
+        });
+    </script>
+    <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
+
+  
+    
+    <meta property="og:url" content="https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset" />
+    <meta property="og:title" content="Bank Customer Churn Dataset " />
+    <meta property="og:description" content="Bank Customer Data for Predicting Customer Churn " />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/2445309/4139805/f40d9d0921f8823172d2ef6f624c109b/dataset-card.jpg?t=2022-08-30-15-10-46" />
+    <meta property="fb:app_id" content="2665027677054710" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+        <meta name="twitter:creator" content="@GauravTopre9" />
+
+
+  <meta name="twitter:site" content="@Kaggle" /> 
+  
+    
+            <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Bank Customer Churn Dataset ","description":"This dataset is for ABC Multistate bank with following columns: \n\n1. **customer_id**, unused variable.\n2. **credit_score,** used as input.\n3. **country**, used as input.\n4. **gender**, used as input.\n5. **age**, used as input.\n6. **tenure**, used as input.\n7. **balance**, used as input.\n8. **products_number**, used as input.\n9. **credit_card**, used as input.\n10. **active_member**, used as input.\n11. **estimated_salary**, used as input.\n12. **churn**, used as the target. 1 if the client has left the bank during some period or 0 if he/she has not.\n\n*Aim is to Predict the Customer Churn for ABC Bank.*\n\n![](https://miro.medium.com/max/737/1*Xap6OxaZvD7C7eMQKkaHYQ.jpeg)","url":"https://www.kaggle.com/gauravtopre/bank-customer-churn-dataset","version":1,"keywords":["task, classification","technique, exploratory data analysis","subject, people and society, business, finance, banking","task, binary-classification","task, logistic regression"],"license":{"@type":"CreativeWork","name":"Other (specified in description)","url":""},"identifier":["2445309"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Gaurav Topre","url":"https://www.kaggle.com/gauravtopre","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/7089355-kg.png?t=2023-10-03-13-17-26"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset/download?datasetVersionNumber=1","contentSize":"191965 bytes"}],"commentCount":4,"dateModified":"2022-08-30T15:01:34.427Z","discussionUrl":"https://www.kaggle.com/gauravtopre/bank-customer-churn-dataset/discussion","alternateName":"Bank Customer Data for Predicting Customer Churn ","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/2445309/4139805/f40d9d0921f8823172d2ef6f624c109b/dataset-card.jpg?t=2022-08-30-15-10-46","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":4},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":31177},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":162809},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":199}]}</script>
+        
+
+  
+    
+
+  
+    
+
+
+    <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="PQCBIVlUPpKQVJtwe0cT1Q==" src="https://apis.google.com/js/api.js" defer
+    async></script>
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" src="/static/assets/runtime.js?v=51981c5a00285974e398"></script>
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" src="/static/assets/vendor.js?v=6d226e4a372be1c4af4e"></script>
+  <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" src="/static/assets/app.js?v=a3eb4905afd6ba81f2af"></script>
+    <script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '0'
+      }
+    </script>
+</head>
+<body>
+  <div id="root">
+    
+
+
+
+
+
+
+
+
+<script nonce="PQCBIVlUPpKQVJtwe0cT1Q==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    jax: ['input/TeX', 'output/SVG'],
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: ["Safe.js"],
+    });
+</script>
+<script type="text/javascript" nonce="PQCBIVlUPpKQVJtwe0cT1Q==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    // Always use the production asset in local dev, which is served from GCS. We tried to proxy and / or serve this
+    // in a better way in localhost, but it didn't work out. See b/328073416#comment8 for details.
+    const forceProdHost = window.location.hostname === "localhost";
+    lib.src = `${forceProdHost ? "https://www.kaggle.com" : ""}/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS_SVG`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
