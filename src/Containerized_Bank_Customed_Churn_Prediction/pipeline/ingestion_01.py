@@ -2,6 +2,8 @@ from src.Containerized_Bank_Customed_Churn_Prediction.config.configuration impor
 from src.Containerized_Bank_Customed_Churn_Prediction.components.data_ingestion import DataIngestion
 from src.Containerized_Bank_Customed_Churn_Prediction import logger
 from src.Containerized_Bank_Customed_Churn_Prediction.entity.config_entity import DataIngestionConfig
+import zipfile
+
 
 STAGE_NAME = "DATA INGESTION STAGE"
 
@@ -17,7 +19,7 @@ class DataIngestionTrainingPipeline():
        data_ingestion = DataIngestion(config=data_ingestion_config) 
        data_ingestion.download_file()
 
-       if data_ingestion_config.local_data_file is zip:
+       if zipfile.is_zipfile(data_ingestion_config.local_data_file):
           data_ingestion.extract_file()
 
        else:
