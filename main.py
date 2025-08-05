@@ -1,6 +1,7 @@
 from src.Containerized_Bank_Customed_Churn_Prediction import logger 
 from src.Containerized_Bank_Customed_Churn_Prediction.pipeline.ingestion_01 import DataIngestionTrainingPipeline
 from src.Containerized_Bank_Customed_Churn_Prediction.pipeline.validation_02 import DataValidationTraininPipeline
+from src.Containerized_Bank_Customed_Churn_Prediction.pipeline.transformation_03 import DataTransformationTrainingPipeline
 
 STAGE_NAME = "DATA INGESTION STAGE"
 
@@ -27,3 +28,16 @@ try:
 except Exception as e:
    logger.info(e)
    raise e
+
+
+STAGE_NAME = ' >>>>>>>DATA TRANSFORMATİON <<<<< '
+
+try:
+    logger.info(f"{STAGE_NAME} başladı")
+    data_transformation =DataTransformationTrainingPipeline()
+    data_transformation.main()
+    logger.info(f"{STAGE_NAME} bitti")
+
+except Exception as e:
+    logger.info(e)
+    raise
