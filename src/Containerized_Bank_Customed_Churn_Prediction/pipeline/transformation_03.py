@@ -17,7 +17,6 @@ class DataTransformationTrainingPipeline:
         data_transformation = DataTransformation(config=data_transformation_config)
         X, num_cols, cat_cols, y = data_transformation.prep_for_pipeline()
         preprocessor=data_transformation.num_cat_pipelines(num_cols,cat_cols)
-        full_pipeline=data_transformation.full_pipeline(preprocessor,model=RandomForestClassifier)
         data_transformation.train_test_split(X,y)
 
 

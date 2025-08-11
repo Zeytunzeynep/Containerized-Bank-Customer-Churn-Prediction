@@ -1,6 +1,6 @@
 from src.Containerized_Bank_Customed_Churn_Prediction.constants import *
 from src.Containerized_Bank_Customed_Churn_Prediction.utils.common import read_yaml,create_directories
-from src.Containerized_Bank_Customed_Churn_Prediction.entity.config_entity import DataIngestionConfig , DataValidationConfig, DataTransformationConfig
+from src.Containerized_Bank_Customed_Churn_Prediction.entity.config_entity import DataIngestionConfig , DataValidationConfig, DataTransformationConfig,ModelTrainerConfig
 
 
 class ConfigurationManager:
@@ -52,10 +52,29 @@ class ConfigurationManager:
         data_transformation_config = DataTransformationConfig(
             root_dir = config.root_dir,
             data_path = config.data_path,
-            parameters = self.params,
-        )
-
+            
+         )
         return data_transformation_config
 
+ def get_model_trainer_config(self) ->ModelTrainerConfig:
+     config = self.config.model_trainer
+     schema = self.schema.TARGET_COLUMN
+     params = self.params
+    
+
+     create_directories([config.root_dir])
+
+     model_name = params["model_name"]
+     model_trainer_config = ModelTrainerConfig(
+        root_dir = config.root_dir,
+        train_data_path = config.train_data_path,
+        test_data_path = config.test_data_path,
+        model = config.model,
+        target_column = schema.name,
+        parameters = params[model_name],
+        model_name = model_name
+     )
+
+     return model_trainer_config
 
      

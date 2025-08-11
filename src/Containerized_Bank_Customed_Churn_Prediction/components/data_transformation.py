@@ -8,6 +8,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from src.Containerized_Bank_Customed_Churn_Prediction.config.configuration import DataTransformationConfig
+import joblib
 
 
 class DataTransformation:
@@ -51,18 +52,15 @@ class DataTransformation:
             ]
         )
 
+        preprocessor_path = os.path.join(self.config.root_dir, 'preprocessor.pkl')
+        joblib.dump(preprocessor, preprocessor_path)
+        logger.info(f"Preprocessor kaydedildi: {preprocessor_path}")
+
+
         return preprocessor
 
 
-    def full_pipeline(self,preprocessor,model):
-        parameters=self.config.parameters
-
-        full_pipe =Pipeline(steps=[
-                ('preprocessor',preprocessor),
-                ('model', model(**parameters))
-            ])
-
-        return full_pipe
+    
 
     def train_test_split(self,X,y):
             

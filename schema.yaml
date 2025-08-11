@@ -12,6 +12,6 @@ COLUMNS:
  estimated_salary : float64
  churn : int64 
 
- TARGET_COLUMN:
+TARGET_COLUMN:
   name : churn
       
